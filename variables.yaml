@@ -1,0 +1,41 @@
+version: "1"
+variables:
+
+  OTEL_SERVICE_NAME:
+    required: true
+    type: string
+    description: "Nome do serviço"
+
+  OTEL_SERVICE_VERSION:
+    required: true
+    type: string
+    description: "Versão do serviço"
+
+  OTEL_TRACES_EXPORTER:
+    required: true
+    type: string
+    default: "otlp"
+    allowed_values:
+      - otlp
+      - none
+
+  OTEL_LOGS_EXPORTER:
+    required: true
+    type: string
+    default: "otlp"
+    allowed_values:
+      - otlp
+      - none
+
+  OTEL_EXPORTER_OTLP_ENDPOINT:
+    required: true
+    type: string
+    description: "Endpoint OTLP do Alloy"
+
+  OTEL_EXPORTER_OTLP_PROTOCOL:
+    required: true
+    type: string
+    default: "grpc"
+    allowed_values:
+      - grpc
+      - http/protobuf
